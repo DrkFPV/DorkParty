@@ -13,7 +13,7 @@ export class SongsController {
     constructor(private songsService:SongsService){}
 
     @Get('search')
-    async findOne(@Query('q') q:string, @Req() req:IUserAuthRequest): Promise<YoutubeSongDto[]>{
+    async findOne(@Query('q') q:string): Promise<YoutubeSongDto[]>{
         let resultList:YoutubeSongDto[] = []        
         if(!q){
             return [];
@@ -23,12 +23,12 @@ export class SongsController {
     }
 
     @Post('add-to-playlist')
-    async AddSong(@Body() song:AddSongDto, @Req() req:IUserAuthRequest): Promise<PlaylistDocument>{
-        return await this.songsService.addSong(song, req.user.userId);
+    async AddSong(@Body() song:AddSongDto): Promise<PlaylistDocument>{
+        return await this.songsService.addSong(song);
     }
 
     @Delete('remove-from-playlist')
-    async RemoveSong(@Body() song:RemoveSongDto, @Req() req:IUserAuthRequest): Promise<PlaylistDocument>{
-        return await this.songsService.removeSong(song, req.user.userId);
+    async RemoveSong(@Body() song:RemoveSongDto): Promise<PlaylistDocument>{
+        return await this.songsService.removeSong(song);
     }
 }

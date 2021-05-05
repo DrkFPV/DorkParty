@@ -16,27 +16,27 @@ export class PlaylistsController {
 
   }
     @Get()
-    async findAll(@Req() req:IUserAuthRequest): Promise<Playlist[]> {
-      return await this.playlistService.findAll(req.user.userId);
+    async findAll(): Promise<Playlist[]> {
+      return await this.playlistService.findAll();
     }
 
     @Post()
-    async create(@Body() createPlayListDto:CreatePlayListDto, @Req() req:IUserAuthRequest): Promise<Playlist> {
-      return await this.playlistService.create(createPlayListDto, req.user.userId);
+    async create(@Body() createPlayListDto:CreatePlayListDto): Promise<Playlist> {
+      return await this.playlistService.create(createPlayListDto);
     }
 
     @Delete()
-    async delete(@Param('id') id:string, @Req() req:IUserAuthRequest): Promise<Playlist> {
-      return await this.playlistService.delete(id, req.user.userId);
+    async delete(@Param('id') id:string): Promise<Playlist> {
+      return await this.playlistService.delete(id);
     }
 
     @Get(':id')
-    async findOne(@Param('id') playListId:string, @Req() req:IUserAuthRequest): Promise<Playlist>{
-      return await this.playlistService.findOne(playListId, req.user.userId);
+    async findOne(@Param('id') playListId:string): Promise<Playlist>{
+      return await this.playlistService.findOne(playListId);
     }
 
     @Put(':id')
-    update(@Body() UpdatePlaylistDto:UpdatePlaylistDto, @Req() req:IUserAuthRequest): any{
-      return this.playlistService.update(UpdatePlaylistDto, req.user.userId);
+    update(@Body() UpdatePlaylistDto:UpdatePlaylistDto): any{
+      return this.playlistService.update(UpdatePlaylistDto);
     }
 }
