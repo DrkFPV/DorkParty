@@ -102,4 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
-angular/src/environments/environment.ts
+
+# angular envs
+angular/src/environments/*
