@@ -1,4 +1,4 @@
-import { BadRequestException, HttpException, HttpStatus, Inject, Injectable, Scope } from "@nestjs/common";
+import { BadRequestException, Inject, Injectable, Scope } from "@nestjs/common";
 import { REQUEST } from "@nestjs/core";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
@@ -22,7 +22,7 @@ export class RoomService{
         if (Boolean(createRoomDto.isPrivate)){
             if (createRoomDto.password === undefined)
             {
-                return {error:"Password Required"}
+                throw new BadRequestException();
             }
             createdHash = await bcrypt.hash(createRoomDto.password, 10)   
         }

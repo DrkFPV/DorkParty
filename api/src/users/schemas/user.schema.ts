@@ -9,15 +9,8 @@ export class User {
   @Prop({unique:true})
   username: string;
 
-  @Prop()
+  @Prop({select: false})
   hash: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
-
-//export const UserSchema = new mongoose.Schema({
-//  name: { type: String, required: true },
-//  email:{ type: String, required: true },
-//  salt: { type: String, required: true },
-//  hash: { type: String, required: true },
-//}, {timestamps:true})

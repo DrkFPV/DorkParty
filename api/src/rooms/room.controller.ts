@@ -14,7 +14,6 @@ export class RoomController {
     async findAll(@Query('q') q:string): Promise<Room[]> {
      
       return await this.roomService.search(q);
-      //return await this.roomService.findAll();
     }
 
     @Post()
@@ -31,9 +30,4 @@ export class RoomController {
     async findOne(@Param('id') roomId:string): Promise<Room>{
       return await this.roomService.findOne(roomId);
     }
-
-    // @Put(':id')
-    // update(@Body() UpdatePlaylistDto:UpdatePlaylistDto): any{
-    //   return this.roomService.update(UpdatePlaylistDto);
-    // }
 }

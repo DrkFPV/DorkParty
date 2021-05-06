@@ -6,6 +6,7 @@ export class CreateRoomDto{
     @ValidateIf(o => o !== undefined)
     isPrivate?: boolean = false
 
-    @ValidateIf(o => o !== undefined)
+    @ValidateIf(o => o.isPrivate === 'true')
+    @IsNotEmpty()
     password?: string = ""
 }

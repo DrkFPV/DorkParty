@@ -21,7 +21,7 @@ export class Room {
   @Prop({required:true, default:false})
   isPrivate: Boolean;
 
-  @Prop()
+  @Prop({select: false})
   hash: string;
 }
 
