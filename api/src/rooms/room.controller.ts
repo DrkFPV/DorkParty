@@ -4,7 +4,7 @@ import { CreateRoomDto } from "./dtos/create.room.dto";
 import { RoomService } from "./room.service";
 import { Room } from "./schemas/room.schema";
 
-@UseGuards(JwtAuthGuard)
+// @UseGuards(JwtAuthGuard)
 @Controller('rooms')
 export class RoomController {
   constructor(private roomService:RoomService){

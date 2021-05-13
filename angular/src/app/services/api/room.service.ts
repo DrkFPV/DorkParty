@@ -8,6 +8,10 @@ import { RestService } from './rest.service';
     constructor(private restService: RestService) { }
 
     search = (query: string) => {
-        return this.restService.getRequest<any, any>(`/rooms/&q=${query}`);
+        return this.restService.getRequest<any, any>(`/rooms/search?q=${query}`);
     }
+
+    // get(id){
+    //   return this.restService.getRequest<any,any>(`/rooms/`);
+    // }
 }

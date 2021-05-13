@@ -20,8 +20,11 @@ export class AuthService {
 
   async login(user: any) {
     const payload = { username: user.username, sub: user.sub };
+    let expireDate = new Date();
+    expireDate.setHours( expireDate.getHours() + 1)
     return {
-      access_token: this.jwtService.sign(payload),
+      accessToken: this.jwtService.sign(payload),
+      expiresAt: expireDate
     };
   }
 }
