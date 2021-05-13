@@ -18,8 +18,6 @@ import * as moment from 'moment';
     }
 
     private setSession(authResult: UserLoginResponseDto): void {
-      // const expiresAt = moment().add(authResult.accessToken, 'second');
-
       localStorage.setItem('id_token', authResult.accessToken);
       localStorage.setItem('expires_at', JSON.stringify(new Date(authResult.expiresAt).getTime()) );
   }
