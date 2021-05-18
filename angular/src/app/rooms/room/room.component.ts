@@ -17,7 +17,13 @@ export class RoomComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.roomId = params['roomId'];
-    })
+    });
+    if (!this.roomId){
+      //no room, nav home;
+    }
+    // this.roomService.get(roomId).subscribe(room=>{
+    //
+    //}
   }
 
 }
